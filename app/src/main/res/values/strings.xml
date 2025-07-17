@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bing Rewards Auto</string>
+    <string name="check_auth">Check Authentication</string>
+    <string name="start_search">Start Search</string>
+    <string name="stop_search">Stop Search</string>
+    <string name="search_count">Search Count</string>
+    <string name="max_searches">Max 56</string>
+    <string name="search_history">Search History</string>
+    <string name="checking_auth">Checking authentication...</string>
+    <string name="authenticated">✅ Authenticated - Ready to search</string>
+    <string name="not_authenticated">❌ Not authenticated - Please login to Bing</string>
+    <string name="starting_search">🔍 Starting search process...</string>
+    <string name="search_stopped">⏹️ Search process stopped</string>
+    <string name="search_completed">✅ Search completed successfully!</string>
+    <string name="enter_search_count">Please enter search count</string>
+    <string name="max_search_warning">Maximum 56 searches to avoid detection</string>
+    <string name="notification_title">Bing Rewards Auto Search</string>
+    <string name="notification_content">Performing automated searches...</string>
+</resources>
