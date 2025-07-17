@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "xnuvers007.bingrewards"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "xnuvers007.bingrewards"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -52,4 +52,13 @@ dependencies {
     implementation(libs.jsoup)
     implementation(libs.recyclerview)
     implementation(libs.lifecycle.runtime.ktx)
+
+        implementation("androidx.appcompat:appcompat:1.6.1")
+        implementation("com.google.android.material:material:1.10.0")
+        implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+        implementation("androidx.work:work-runtime:2.8.1")
+        implementation("com.squareup.okhttp3:okhttp:4.12.0")
+        implementation("org.jsoup:jsoup:1.16.1")
+        implementation("androidx.recyclerview:recyclerview:1.3.2")
+        implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 }
