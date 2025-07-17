@@ -8,6 +8,7 @@ import okhttp3.Response;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.concurrent.TimeUnit;
+import android.webkit.CookieManager;
 
 public class BingSearchService {
 
@@ -19,6 +20,7 @@ public class BingSearchService {
     }
 
     public BingSearchService() {
+        syncCookiesToOkHttp();
         client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
@@ -36,7 +38,24 @@ public class BingSearchService {
                 .build();
     }
 
+    public void syncCookiesToOkHttp() {
+        CookieManager cookieManager = CookieManager.getInstance();
+        String cookies = cookieManager.getCookie("https://rewards.bing.com/");
+        if (cookies != null) {
+            client = new OkHttpClient.Builder()
+                    .addInterceptor(chain -> {
+                        Request original = chain.request();
+                        Request request = original.newBuilder()
+                                .header("Cookie", cookies)
+                                .build();
+                        return chain.proceed(request);
+                    })
+                    .build();
+        }
+    }
+
     public void performSearch(String keyword, SearchCallback callback) {
+        syncCookiesToOkHttp();
         try {
             String encodedKeyword = URLEncoder.encode(keyword, "UTF-8");
             String url = "https://www.bing.com/search?form=QBRE&q=" + encodedKeyword;

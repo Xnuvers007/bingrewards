@@ -41,9 +41,9 @@ public class AuthenticationManager {
                 String html = response.body().string();
 
                 // Check if user is logged in by looking for specific elements
-                if (html.contains("id=\"rewards-dashboard\"") ||
-                        html.contains("class=\"user-info\"") ||
-                        html.contains("Point balance")) {
+                if (html.contains("id=\"rewardsBanner\"") ||
+                        html.contains("mee-rewards-user-status-banner-profile") ||
+                        html.contains("mee-rewards-user-status-banner-balance")) {
                     callback.onSuccess();
                 } else {
                     callback.onFailure("Not authenticated");
@@ -55,7 +55,7 @@ public class AuthenticationManager {
 
     public void openBingLogin() {
         Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1609459200&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3A%2F%2Faccount.microsoft.com%2F&lc=1033&id=292666&lw=1&fl=easi2"));
+                Uri.parse("https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1609459200&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3A%2F%2Frewards.bing.com%2F&lc=1033&id=292666&lw=1&fl=easi2"));
         context.startActivity(intent);
     }
 }
